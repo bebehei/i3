@@ -1498,11 +1498,16 @@ output.
 
 *Syntax*:
 ---------------------------------
-tray_output none|primary|<output>
+tray_output none|primary|any|<output>
 ---------------------------------
 
 *Example*:
 -------------------------
+# display tray at first available monitor
+bar {
+    tray_output any
+}
+
 # disable system tray
 bar {
     tray_output none
@@ -1511,6 +1516,13 @@ bar {
 # show tray icons on the primary monitor
 bar {
     tray_output primary
+}
+
+# show tray icons on the primary monitor
+# but fallback to any monitor, if the primary isn't available
+bar {
+    tray_output primary
+    tray_output any
 }
 
 # show tray icons on the big monitor

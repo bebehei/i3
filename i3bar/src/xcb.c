@@ -774,6 +774,10 @@ static void handle_client_message(xcb_client_message_event_t *event) {
                     if (!walk->active)
                         continue;
 
+                    if (strcasecmp("any", tray_output->output) == 0)
+                        output = walk;
+                        break;
+
                     if (strcasecmp(walk->name, tray_output->output) == 0) {
                         DLOG("Found tray_output assignment for output %s.\n", walk->name);
                         output = walk;
